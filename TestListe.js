@@ -2,7 +2,7 @@ data=[
       {
         "prenom":"Yann",
         "nom":"Dias",
-        "etat_dossier":"En attente"
+        "etat_dossier":"En attente",
       },
       {
         "prenom":"Loïc",
@@ -58,7 +58,6 @@ data=[
 
 
 ];
-
     $(document).ready(function () {
         $('#Liste_candidats').DataTable({
             "processing": true,
@@ -69,12 +68,18 @@ data=[
                 { "data": "prenom" },
                 { "data": "nom" },
                 { "data": "etat_dossier" },
+               	{
+                    "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
+                    "data": function (data) {
+                        return  '<a class="btn btn-danger" href="mailto:'+data.nom+'">Consulter</a>'
+                    }
+                },
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return '<button class="btn btn-primary" type="button">' + 'Modifier le dossier</button>'
+                        return  '<a class="btn btn-primary" href="mailto:'+data.nom+'">Envoyer</a>'
                     }
-                }
+                },
             ]
         });
     });
