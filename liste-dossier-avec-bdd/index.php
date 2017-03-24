@@ -63,8 +63,8 @@
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
-				        <th></th>
-                <th>Etat dossier</th>
+				<th>Etat dossier</th>
+                <th></th>
                 <th>Mail</th>
             </tr>
         </thead>
@@ -73,8 +73,8 @@
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th></th>
                 <th>Etat dossier</th>
+                <th></th>
                 <th>Mail</th>
             </tr>
         </tfoot>
@@ -102,8 +102,12 @@ $('#student_grid').DataTable({
           "columns": [
                 { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "40px"},
                 { "data": "2" ,"bSearchable": false, "bSortable": false, "sWidth": "40px"},
-                { "data": "0" ,"bSearchable": false, "bSortable": false, "sWidth": "40px"},
-                { "data": "4" },
+                { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "40px"},
+                {
+                    "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
+                    "data": function (data) {
+                        return  '<form action="dossier_admin.php"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-primary" type="submit" value="Consulter dossier"></form>'
+                    }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
