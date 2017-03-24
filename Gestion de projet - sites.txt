@@ -1,0 +1,3 @@
+Github : https://github.com/ydias/ProjetAnneeSpeciale
+Cahier des charges : https://docs.google.com/spreadsheets/d/1H7mmc7hmsLnfg7d6hbM1uLUYsnRaqpMEC63U8zGGhwU/edit#gid=0
+Slack : https://projetanneespeciale.slack.com
