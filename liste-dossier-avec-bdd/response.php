@@ -23,7 +23,7 @@
 		$where .=" WHERE ";
 		$where .=" ( nom LIKE '".$params['search']['value']."%' ";    
 		$where .=" OR prenom LIKE '".$params['search']['value']."%' ";
-
+		$where .=" OR etat_dossier LIKE '".$params['search']['value']."%' ";
 		$where .=" OR email LIKE '".$params['search']['value']."%' )";
 	}
 

@@ -1,5 +1,12 @@
 <?php
 /* Database connection start */
+/*$servername="mysql.hostinger.fr";
+$dbname="u572838726_annee";
+$username="u572838726_annee";
+$password="0zEhTeuYnW7M";
+*/
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";

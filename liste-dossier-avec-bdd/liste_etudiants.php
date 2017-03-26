@@ -47,7 +47,7 @@
 
 	$totalRecords = mysqli_num_rows($queryTot);
 
-	$queryRecords = mysqli_query($conn, $sqlRec) or die("error to fetch employees data");
+	$queryRecords = mysqli_query($conn, $sqlRec) or die("error to fetch student data");
 
 	//iterate on results row and create new index array of data
 	while( $row = mysqli_fetch_row($queryRecords) ) { 
