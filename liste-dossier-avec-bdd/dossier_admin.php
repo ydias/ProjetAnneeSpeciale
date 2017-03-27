@@ -24,7 +24,7 @@ function affiche($cible){	//permet d'afficher les accents
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<title>Ma page de traitement</title>
+<title>Dossier de <?php affiche($row['prenom'].' '.$row['nom']); ?> </title>
 </head>
 
 
@@ -37,7 +37,7 @@ function affiche($cible){	//permet d'afficher les accents
     <!-- HEADER -->
     <div id="header">
         <div class="container" style="display: inline;">
-           <img src="IUT-villetaneuse.png" alt="accueil"/> <font size="7" style="position: absolute;right: 25px;top: 60px;">
+           <img src="IUT-villetaneuse.png" alt="accueil"/> <font size='6' style="position: absolute;right: 25px;top: 60px;">
                     DUT informatique année spéciale
                 </font>
         </div>
@@ -70,6 +70,7 @@ function affiche($cible){	//permet d'afficher les accents
             </ul>
         </div>
     </nav>
+</div>
 
 <!-- Fin navbar -->
 
@@ -93,100 +94,103 @@ function affiche($cible){	//permet d'afficher les accents
 				<br>
 
 				<div class="row">
-					<label class="col-lg-1">Nom:</label>
-					<p class="col-lg-2 col-lg-offset-1" id="nom_etudiant"> <?php  affiche($row['nom']);  ?> </p>
-					<label class="col-lg-1 col-lg-offset-1">Prenom:</label>
-					<p class="col-lg-2 col-lg-offset-1" id='prenom_etudiant'> <?php  affiche($row['prenom']);  ?> </p>
-				</div> <br/>
+					<label class="col-lg-2">Nom:</label>
+					<p class="col-lg-6" id="nom_etudiant"> <?php  affiche($row['nom']);  ?> </p>
+				</div> 
+				<div class="row">
+					<label class="col-lg-2 ">Prenom:</label>
+					<p class="col-lg-6" id='prenom_etudiant'> <?php  affiche($row['prenom']);  ?> </p>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-2">N° de sécurité Sociale:</label>
-					<p class="col-lg-2"/> <?php  affiche($row['numero_securite_sociale']);  ?> </p>
-				</div> <br/>
+					<label class="col-lg-2 ">N° de sécurité Sociale:</label>
+					<p class="col-lg-1"> <?php  affiche($row['numero_securite_sociale']);  ?> </p>
+				</div>
 
 				<div class="row">
 						<label class="col-lg-2">Situation familiale: </label>
-						<p class="col-lg-2"> <?php  affiche($row['situation_familiale']);  ?> </p>
-						<label class="col-lg-2 col-lg-offset-1">Nombre d'enfants:</label> 
-						<p class="col-lg-2"> <?php  affiche($row['nombre_enfants']);  ?> </p>
-				</div><br/>
+						<p class="col-lg-6"> <?php  affiche($row['situation_familiale']);  ?> </p>
+				</div>
+				<div class="row">
+						<label class="col-lg-2">Nombre d'enfants:</label> 
+						<p class="col-lg-6"> <?php  affiche($row['nombre_enfants']);  ?> </p>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-1">Né(e) le:</label>
-					 <p class="col-lg-2 col-lg-offset-1"><?php  affiche($row['date_naissance']);  ?><p/>
-				</div><br/>
+					<label class="col-lg-2">Né(e) le:</label>
+					 <p class="col-lg-6"><?php  affiche($row['date_naissance']);  ?><p/>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-1">A:</label>
-					<p class="col-lg-2 col-lg-offset-1"><?php  affiche($row['lieu_naissance']);  ?> <p/>
-				</div><br/>
+					<label class="col-lg-2">A:</label>
+					<p class="col-lg-6"><?php  affiche($row['lieu_naissance']);  ?> <p/>
+				</div>
 
 				<div class="row">
 						<label class="col-lg-2">Département: </label>
-						<p class="col-lg-2"> <?php  affiche($row['departement']);  ?> </p>
-						<label class="col-lg-2 col-lg-offset-1">ou pays:</label> 
-						<p class="col-lg-2"> <?php  affiche($row['pays']);  ?> </p>
-				</div><br/>	
+						<p class="col-lg-6"> <?php  affiche($row['departement']);  ?> </p>
+				</div>
+				<div class="row">
+						<label class="col-lg-2">ou pays:</label> 
+						<p class="col-lg-6"> <?php  affiche($row['pays']);  ?> </p>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-1">Nationalité:</label>
-					<p class="col-lg-1 col-lg-offset-1"><?php  affiche($row['nationalite']);  ?> <p/>
-				</div><br/>
+					<label class="col-lg-2">Nationalité:</label>
+					<p class="col-lg-6"><?php  affiche($row['nationalite']);  ?> <p/>
+				</div>
 
 				<div class="row">
 					<label class="col-lg-2">Adresse de la famille:</label>
-					<p class="col-lg-2"><?php affiche($row['adresse_famille']);  ?> <p/>
-				</div><br/>
+					<p class="col-lg-6"><?php affiche($row['adresse_famille']);  ?> <p/>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-2">Adresse de l'année en cours (si differente de la famille)</label>
-					<p class="col-lg-2 "> <?php affiche($row['adresse_annee_en_cours']);  ?> <p/>
-				</div><br/>
+					<label class="col-lg-2">Adresse de l'année en cours (si differente de la famille):</label>
+					<p class="col-lg-6 "> <?php affiche($row['adresse_annee_en_cours']);  ?> <p/>
+				</div>
 
 				<div class="row">
 						<label class="col-lg-2">Téléphone fixe: </label>
-						<p class="col-lg-2"> <?php affiche($row['telephone_personnel']); ?> </p>
-						<label class="col-lg-2 col-lg-offset-1">Téléphone portable:</label> 
-						<p class="col-lg-2"> <?php affiche($row['telephone_portable']); ?> </p>
-				</div><br/>
+						<p class="col-lg-6"> <?php affiche($row['telephone_personnel']); ?> </p>
+				</div>
+				<div class="row">
+						<label class="col-lg-2">Téléphone portable:</label> 
+						<p class="col-lg-6"> <?php affiche($row['telephone_portable']); ?> </p>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-6">Bac :</label>
+					<label class="col-lg-2">Bac :</label>
 				</div>
 
 				<div class="row">	
 						<label class="col-lg-2 ">Année: </label>
-						<p class="col-lg-2"> <?php affiche($row['annee_bac']); ?> </p>
-						<label class="col-lg-2 col-lg-offset-1">Serie:</label> 
-						<p class="col-lg-2"> <?php affiche($row['serie_bac']); ?> </p>
-				</div><br/>
-
-				<div class="row">
-					<label class="col-lg-6">Dernier établissement secondaire fréquenté</label>
-					<p class="col-lg-2"> <?php affiche($row['dernier_etablissement_secondaire_frequente']); ?> </p>
+						<p class="col-lg-6"> <?php affiche($row['annee_bac']); ?> </p>
+				</div>
+				<div class="row">	
+						<label class="col-lg-2">Serie:</label> 
+						<p class="col-lg-6"> <?php affiche($row['serie_bac']); ?> </p>
 				</div>
 
 				<div class="row">
-						<label class="col-lg-2">Nom </label>
-						<p class="col-lg-2"> lycée </p>
-						<label class="col-lg-2 col-lg-offset-1">Ville</label> 
-						<p class="col-lg-2"> montmorency </p>
-				</div><br/>
-
-				<div class="row">
-					<label class="col-lg-6">Avez-vous fait une demande de bourse de l'Enseignement Supérieur ?</label>
-					<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['demande_bourse']); ?>  </p>
+					<label class="col-lg-2">Dernier établissement secondaire fréquenté :</label>
+					<p class="col-lg-6"> <?php affiche($row['dernier_etablissement_secondaire_frequente']); ?> </p>
 				</div>
 
 				<div class="row">
-					<label class="col-lg-6">A-t-elle été accordée ?</label>
-					<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['demande_bourse_accordee']); ?> </p>
-				</div><br/>
+					<label class="col-lg-2">Avez-vous fait une demande de bourse de l'Enseignement Supérieur ?</label>
+					<p class="col-lg-6"> <?php affiche($row['demande_bourse']); ?>  </p>
+				</div>
 
 				<div class="row">
-					<label class="col-lg-6">Dernier école fréquenté dans l'enseignement supérieur</label>
-					<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['derniere_ecole_frequentee_enseignement_superieure']); ?> </p>
-				</div><br/>
+					<label class="col-lg-2">A-t-elle été accordée ?</label>
+					<p class="col-lg-6"> <?php affiche($row['demande_bourse_accordee']); ?> </p>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-2">Dernière école fréquentée dans l'enseignement supérieur :</label>
+					<p class="col-lg-6"> <?php affiche($row['derniere_ecole_frequentee_enseignement_superieure']); ?> </p>
+				</div>
 
 				<!--<div class="row">
 					<label class="col-lg-1 col-lg-offset-1">Nom</label>
@@ -196,30 +200,33 @@ function affiche($cible){	//permet d'afficher les accents
 				</div> <br/>-->
 
 				<div class="row">
-					<label class="col-lg-2">Filière suivie</label>
-					<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['filiere_suivie']); ?> </p>			
-				</div><br/>
-
-				<div class="row">
-					<label class="col-lg-2">Diplôme obtenu ou année validées</label>
-					<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['diplome_obtenu_annee_validees']); ?> </p>
-				</div><br/>
-
-				<div class="row">
-					<label class="col-lg-6">Avez-vous fait une demande dans un autre IUT
-					ou dans un autre département de l'IUT de Villetaneuse pour la rentrée universitaire ?</label>
-				<p class="col-lg-2 col-lg-offset-1"> <?php affiche($row['demande_autre_iut_autre_departement']); ?> </p>
-				</div><br/>
-
-				<div class="row">
-					<label class="col-lg-6">Etablissement et specialité 1</label>
-					<p class="col-lg-6 col-lg-offset-6"> <?php affiche($row['specialite_etablissement_1']); ?> </p>
-					<label class="col-lg-6">Etablissement et specialité 2</label>
-					<p class="col-lg-6 col-lg-offset-6"> <?php affiche($row['specialite_etablissement_2']); ?> </p>
-					<label class="col-lg-6">Etablissement et specialité 3</label>
-					<p class="col-lg-6 col-lg-offset-6"> <?php affiche($row['specialite_etablissement_3']); ?> </p>
-
+					<label class="col-lg-2">Filière suivie :</label>
+					<p class="col-lg-6"> <?php affiche($row['filiere_suivie']); ?> </p>			
 				</div>
+
+				<div class="row">
+					<label class="col-lg-2">Diplôme obtenu ou année validées :</label>
+					<p class="col-lg-6"> <?php affiche($row['diplome_obtenu_annee_validees']); ?> </p>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-3">Avez-vous fait une demande dans un autre IUT ou dans un autre département de l'IUT de Villetaneuse pour la rentrée universitaire ?</label>
+				<p class="col-lg-6"> <?php affiche($row['demande_autre_iut_autre_departement']); ?> </p>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-3">Etablissement et specialité 1 :</label>
+					<p class="col-lg-6"> <?php affiche($row['specialite_etablissement_1']); ?> </p>
+				</div>
+				<div class="row">
+					<label class="col-lg-3">Etablissement et specialité 2 :</label>
+					<p class="col-lg-6"> <?php affiche($row['specialite_etablissement_2']); ?> </p>
+				</div>
+				<div class="row">
+					<label class="col-lg-3">Etablissement et specialité 3 :</label>
+					<p class="col-lg-6 "> <?php affiche($row['specialite_etablissement_3']); ?> </p>
+				</div>
+				
 
 				<!--<div class="row">
 					<label class="col-lg-2">Etablisement</label>
@@ -229,7 +236,8 @@ function affiche($cible){	//permet d'afficher les accents
 				</div><br/>-->
 
 				<div class="row">
-					<label class="col-lg-6">Comment avez-vous eu connaissance de notre formation ?</label>
+					<label class="col-lg-3">Comment avez-vous eu connaissance de notre formation ?</label>
+					<p class="col-lg-6"> <?php affiche($row['connaissance_formation']); ?> </p>
 				</div>
 
 				<!--<div class="row">
