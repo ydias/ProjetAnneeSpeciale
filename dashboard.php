@@ -19,47 +19,49 @@
         		<div class="titre col-sm-9">
         			<h5>Historique :</h5>
         		</div>
-             <form class='Toolbox_form col-sm-3'>
+             <!--<form class='Toolbox_form col-sm-3'>
                <SELECT name="nom" size="1">
                  <OPTION>Trier par date</OPTION>
-                 <OPTION>Trier par nom</OPTION>
+                 <OPTION>Trier par action</OPTION>
                  <OPTION>Trier par etudiant</OPTION>
                  <OPTION>Trier par administrateur</OPTION>
                </SELECT>
-              </form>
+              </form>-->
         	</div>
         	
           <?php
-        	 $a = new action();
-        	 for($x = 0; $x < 4; $x++)
-              $a->affiche();
+
+            /*$a = new action('action', 'lorem ipsum', '2017-03-24', 1, 'etudiant', 'admin');            
+            $a->enregistrer();
+            $b = new action('action', 'lorem ipsum', '2017-03-24', 2, 'etudiant', 'admin');            
+            $b->enregistrer();
+            $c = new action('action', 'lorem ipsum', '2017-03-24', 3, 'etudiant', 'admin');            
+            $c->enregistrer();
+            $d = new action('action', 'lorem ipsum', '2017-03-24', 4, 'etudiant', 'admin');            
+            $d->enregistrer();
+            $e = new action('action', 'lorem ipsum', '2017-03-24', 5, 'etudiant', 'admin');            
+            $e->enregistrer();*/
+
+
+            require('BDD_connexion.php');
+            $BaseDeDonne = $bdd->query('select * from historique');
+            while($line = $BaseDeDonne->fetch())
+            {
+              $action = new action($line['action'], $line['info'], $line['date'], $line['id'], $line['nom_etudiant'], $line['nom_admin']);
+              $action->affiche();
+            }
+            $BaseDeDonne->closeCursor(); // Termine le traitement de la requête
+
+            $BaseDeDonne = $bdd->query('select count(id) from historique');
+            $nb_ligne = $BaseDeDonne->fetch();
+            $nbpage = 10/*(int)($nb_ligne['count(id)']/10)*/;
+            /*echo '<script> alert('.$nbpage.')</script>';*/
+            $pageActuel = 1;
+
         	?>
 
           <?php 
-            $nbpage = 10;
-            $pageActuel = 1;
-
-            echo '<p class="page" ><a href="*"><-</a>';
-            if($pageActuel > 2)
-              echo '<a href="*"> 1 </a>';
-
-             if($pageActuel > 3)
-              echo '...';
-
-            if($pageActuel>1)
-              echo '<a href="*">'. ($pageActuel-1) .' </a>';
-
-            echo '<a href="*" class="page_actuel">'. $pageActuel .' </a>';
-            
-            if($pageActuel < $nbpage)
-             echo'<a href="*">'. ($pageActuel+1) .' </a>';
-
-            if($pageActuel < $nbpage - 2)
-             echo'...';
-
-            echo'<a href="*">'. $nbpage.' </a><a href="*">-></a></p>';
-
-
+            require_once('Changement_page.php');
           ?>
 
         </section>

@@ -1,23 +1,57 @@
 <?php 
+
+        var action_possible[] = {'Creation_de_dossier', 'Modificatin_de_dossier', 'Ajout_de_piece_jointe', 'Validation_par_email',
+         'Non-validation_par_E-mail', 'Changelent_de_statut_de_dossier', 'Envoie_de_rapelle_de_piece', 'Envoie_de_resultat_de_statut',
+         'Supprimer_dossier'};
+
         class action
         {
-        private $nom = "Lambda";
-        private $info = "Ac ne quis a nobis hoc ita dici forte miretur, quod alia quaedam in hoc facultas sit ingeni, neque haec dicendi ratio aut disciplina, ne nos quidem huic uni studio penitus umquam dediti fuimus. Etenim omnes artes, quae ad humanitatem pertinent, habent quoddam commune vinculum, et quasi cognatione quadam inter se continentur.";
-        private $date = '17/06/2015';
-        private $num = 1;
-        private $etudiant = 'jean';
-        private $admin = 'admin';
+        private $action;
+        private $info;
+        private $date;
+        private $num;
+        private $etudiant;
+        private $admin;
 
+        public function __construct($action, $info, $date, $num, $etudiant, $admin)
+        {
+            for(var x = 0; x < action_possible.length(); x++)
+                if(is_string($action) && $action === action_possible[x])$this->action = $action;
 
-                function affiche()
-                {
-        	       echo '<div class="action row">
-        		      <div class="action-info col-sm-11"><h6>'. $this->admin .' : '. $this->nom .' : '. $this->etudiant .'</h6><p>'. $this->info .'</p></div>
-                              <p class="action-date col-sm-1">'. $this->date .'</p>
-                              <FORM>
-                                <INPUT type="checkbox" name="choix1" value="'. $this->num .'">
-                              </FORM>
-        	             </div>';
-        	}
+            if(is_string($info))$this->info = $info;
+
+            $this->date = $date;
+
+            if(is_int($num))$this->num = $num;
+
+            if(is_string($etudiant))$this->etudiant = $etudiant;
+
+            if(is_string($admin))$this->admin = $admin;
+        }
+
+        function affiche()
+        {
+        	echo '<div class="action row">
+        		 <div class="action-info col-sm-11"><h6>'. $this->admin .' : '. $this->action .' : '. $this->etudiant .'</h6><p>'. $this->info .'</p></div>
+                 <p class="action-date col-sm-1">'. $this->date .'</p>
+        	     </div>';
+        }
+
+        function enregistrer()
+        {
+            require('BDD_connexion.php');
+            $ajout = $bdd->prepare('INSERT INTO historique(action, date, id, info, nom_admin, nom_etudiant)
+             VALUES(:action, :date, :id, :info, :nom_admin, :nom_etudiant)');
+            $ajout->execute(array(
+                'action' => $this->action,
+                'date' => $this->date,
+                'id' => $this->num,
+                'info' => $this->info,
+                'nom_admin' => $this->admin,
+                'nom_etudiant' => $this->etudiant
+            ));
+
+            $ajout->closeCursor(); // Termine le traitement de la requête
+        }
         }
 ?>
