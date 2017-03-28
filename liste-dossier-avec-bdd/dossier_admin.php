@@ -77,7 +77,7 @@ function affiche($cible){	//permet d'afficher les accents
 
 
 
-<h3>Détails du dossier de : <?php affiche($row['prenom'].' '.$row['nom']); ?></h4>
+<h3>Détails du dossier de : <?php affiche($row['prenom'].' '.$row['nom']); ?>  (Etat du dossier : <?php  affiche($row['etat_dossier']);  ?> )</h4>
 <a href="index.php">Retour a la liste des dossiers </a>
 
 <div class="container">
@@ -316,8 +316,37 @@ function affiche($cible){	//permet d'afficher les accents
 
 
 -->
+<br/>
+<br/>
+<form action="supprimer_dossier.php" method="post"><input type="hidden" name="id" value="<?php echo $_POST['id']; ?>"><input class="btn btn-danger" type="submit" value="Supprimer le dossier" onclick="if(!confirm(`Voulez-vous Supprimer ce dossier?`)) return false;"></form>
+<br/>
+<br/>
 
 
+<form method="post" action="changer_etat_dossier.php">
+
+   <p>
+
+       <label for="etat_dossier">Modifier l'etat du dossier :</label>
+       <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
+       <select class='form-control' name="etat_dossier" id="pays">
+
+           <option value="En liste complementaire">En liste complementaire</option>
+
+           <option value="Accepte">Accepte</option>
+
+           <option value="Refuse">Refuse</option>
+
+           <option value="En attente de reponse">En attente de reponse</option>
+
+           <option value="Non confirme">Non confirme</option>
+
+       </select>
+       <input class="btn btn-danger" type="submit" value="modifier">
+
+   </p>
+
+</form>
 
 
 
