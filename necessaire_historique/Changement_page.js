@@ -17,12 +17,11 @@ function 	actualiserChangementPage()
 
   $('.page span').eq(0).text('1');
 
-  $('.page span').eq(6).text(' ' + nbPages);
+  if(nbPages > 1)
+    $('.page span').eq(6).text(' ' + nbPages);
 
   if(page_actuel > 3)										/*si la page actuel est a plus d'une case d'écart de la premiere*/
-  {
   	$('.page span').eq(1).text(' ...');						/*alors on ajoute '...' juste a coté du 1*/
-  }
 
   if(page_actuel < (nbPages - 2))							/*si la page actuel est a plus d'une case d'écart de la derniere*/
   	$('.page span').eq(5).text(' ...');						/*alors on ajoute '...' juste a coté de la valeur de la derniere page*/
