@@ -1,0 +1,16 @@
+Fichier commun :
+	connection.php
+
+Fichiers pour la liste des étudiants:
+	liste_dossiers.php => la page
+	liste_etudiants.php => rechercher les etudiants dans la BDD
+	mailing_lists.php => les boutons pour envoyer les mails a chaque catégorie
+
+Fichier pour le dossier détaillé:
+	dossier_admin.php
+
+Fichiers pour la liste des administrateurs:
+	liste_admins.php => la page
+	fetch_admins.php => rechercher les admins dans la BDD
+	ajouter_admin.php => ajouter un admin
+	supprimer_admin.php => supprimer un admin

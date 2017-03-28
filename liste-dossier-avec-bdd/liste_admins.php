@@ -33,18 +33,13 @@
                         Modifications récentes
                     </a>
                 </li>
-                <li class="active">
-                    <a href="#liste_candidats">
+                <li>
+                    <a href="liste_dossiers.php">
                         Liste des candidats
                     </a>
                 </li>
-                <li>
-                    <a href="#mails">
-                        Envoi de mails
-                    </a>
-                </li>
-                <li>
-                    <a href="#gestion_admin">
+                <li class="active">
+                    <a href="liste_admins.php">
                         Gestion des admins
                     </a>
                 </li>
@@ -59,6 +54,8 @@
         <h1>Liste des admins</h1>
         <div class="">
         <br/>
+        
+        <button class="btn btn-primary" data-title="Add" data-toggle="modal" data-target="#add" ><span class="glyphicon glyphicon-plus"></span>Ajouter un admin</button>
         <br/>
         <br/>
 		<table id="admin_grid" class="display" width="100%" cellspacing="0">
@@ -83,16 +80,36 @@
 </div>
 
 
-</body>
-<footer>
-    <!-- Footer -->
-    <div id="navbar">
-    <nav class="navbar fixed-bottom navbar-inverse">
-    </nav>
-    </div>
-</footer>
 
-<!-- Fin navbar -->
+
+
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        Ajouter un admin : 
+
+     <form action="ajouter_admin.php" method="post">
+     <input type="text" name="login" placeholder="login" />
+     <input type="text" name="mdp" placeholder="mdp" />
+     <input class="btn btn-primary" type="submit" value="Ajouter admin">
+     </form>
+        
+        
+        </div>
+      </div>
+     
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+
+
+
+
+</body>
 
 </p>
 <script type="text/javascript">
@@ -112,7 +129,7 @@ $('#admin_grid').DataTable({
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<form action="supprimer.php" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"></form>'
+                        return  '<form action="supprimer_admin.php" class="supprimer" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"></form>'
                     }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
@@ -121,6 +138,6 @@ $('#admin_grid').DataTable({
                     }}
                 
             ]
-        });   
+        });  
 });
 </script>

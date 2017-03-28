@@ -34,17 +34,12 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="#liste_candidats">
+                    <a href="liste_dossiers.php">
                         Liste des candidats
                     </a>
                 </li>
                 <li>
-                    <a href="#mails">
-                        Envoi de mails
-                    </a>
-                </li>
-                <li>
-                    <a href="#gestion_admin">
+                    <a href="liste_admins.php">
                         Gestion des admins
                     </a>
                 </li>
@@ -91,15 +86,7 @@
 
 
 </body>
-<footer>
-    <!-- Footer -->
-    <div id="navbar">
-    <nav class="navbar fixed-bottom navbar-inverse">
-    </nav>
-    </div>
-</footer>
 
-<!-- Fin navbar -->
 
 <!--<form onsubmit="javascript:window.open('dossier_admin.php','width=400,height=500,scrollbars=yes')" ><input type="hidden" name="id" value="lol"><input class="btn btn-primary" type="submit" value="Consulter dossier" ></form>
 

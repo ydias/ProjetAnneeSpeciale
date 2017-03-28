@@ -16,7 +16,7 @@ foreach ($data as $key) {
 	$refus.=$key[0].',';
 }
 
-$bouton_refus='<a class="btn btn-primary" href="mailto:?bcc='.$refus.'">Candidats refusés</a>';
+$bouton_refus='<a class="btn btn-warning" href="mailto:?bcc='.$refus.'">Candidats refusés</a>';
 
 //var_dump($bouton_refus);
 
@@ -36,7 +36,7 @@ foreach ($data_nc as $key_nc) {
 	$non_confirme.=$key_nc[0].',';
 }
 
-$bouton_non_confirme='<a class="btn btn-primary" href="mailto:?bcc='.$non_confirme.'">Candidats non confirmés</a>';
+$bouton_non_confirme='<a class="btn btn-warning" href="mailto:?bcc='.$non_confirme.'">Candidats non confirmés</a>';
 
 //var_dump($bouton_non_confirme);
 ///////////////////////////////////////////////////////
@@ -55,7 +55,7 @@ foreach ($data_ac as $key_ac) {
 	$accepte.=$key_ac[0].',';
 }
 
-$bouton_accepte='<a class="btn btn-primary" href="mailto:?bcc='.$accepte.'">Candidats acceptés</a>';
+$bouton_accepte='<a class="btn btn-warning" href="mailto:?bcc='.$accepte.'">Candidats acceptés</a>';
 //var_dump($accepte);
 ///////////////////////////////////////////////////////
 
@@ -73,7 +73,7 @@ foreach ($data_at as $key_at) {
 	$attente.=$key_at[0].',';
 }
 
-$bouton_attente='<a class="btn btn-primary" href="mailto:?bcc='.$attente.'">Candidats en attente</a>';
+$bouton_attente='<a class="btn btn-warning" href="mailto:?bcc='.$attente.'">Candidats en attente</a>';
 //var_dump($attente);
 
 ///////////////////////////////////////////////////////
@@ -92,4 +92,4 @@ foreach ($data_lc as $key_lc) {
 	$liste_complementaire.=$key_lc[0].',';
 }
 
-$bouton_liste_complementaire='<a class="btn btn-primary" href="mailto:?bcc='.$liste_complementaire.'">Candidats en liste complementaire</a>';
+$bouton_liste_complementaire='<a class="btn btn-warning" href="mailto:?bcc='.$liste_complementaire.'">Candidats en liste complementaire</a>';

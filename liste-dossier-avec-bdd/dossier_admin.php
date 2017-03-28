@@ -53,17 +53,12 @@ function affiche($cible){	//permet d'afficher les accents
                     </a>
                 </li>
                 <li class="active">
-                    <a href="#liste_candidats">
+                    <a href="liste_dossiers.php">
                         Liste des candidats
                     </a>
                 </li>
                 <li>
-                    <a href="#mails">
-                        Envoi de mails
-                    </a>
-                </li>
-                <li>
-                    <a href="#gestion_admin">
+                    <a href="liste_admins.php">
                         Gestion des admins
                     </a>
                 </li>
