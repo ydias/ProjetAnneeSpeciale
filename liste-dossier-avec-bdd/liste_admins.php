@@ -50,9 +50,8 @@
 <!-- Fin navbar -->
 <body>
 	<div class="container">
-      <div class="">
+   
         <h1>Liste des admins</h1>
-        <div class="">
         <br/>
         
         <button class="btn btn-primary" data-title="Add" data-toggle="modal" data-target="#add" ><span class="glyphicon glyphicon-plus"></span>Ajouter un admin</button>
@@ -61,6 +60,8 @@
 		<table id="admin_grid" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
                 <th>Mail</th>
                 <th></th>
                 <th>Mail</th>
@@ -69,15 +70,17 @@
  
         <tfoot>
             <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
                 <th>Mail</th>
                 <th></th>
                 <th>Mail</th>
+
             </tr>
         </tfoot>
     </table>
-    </div>
-</div>
-</div>
+
+
 
 
 
@@ -88,30 +91,35 @@
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        Ajouter un admin : 
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">× </button>
+        <b>Ajouter un admin : </b> 
 
      <form action="ajouter_admin.php" method="post">
-     <input type="text" name="login" placeholder="login" />
-     <input type="text" name="mdp" placeholder="mdp" />
+        <br/> 
+     <input type="text" name="nom" placeholder="Nom" /> <br/>
+     <input type="text" name="prenom" placeholder="Prenom" /> <br/>
+     <input type="text" name="email" placeholder="Email" /> <br/>
+     <input type="password" name="mdp" placeholder="Mot de passe" /> <br/>
      <input class="btn btn-primary" type="submit" value="Ajouter admin">
      </form>
         
         
-        </div>
-      </div>
+            </div>
+    </div>
      
-        </div>
+    </div>
     <!-- /.modal-content --> 
-  </div>
+</div>
       <!-- /.modal-dialog --> 
 
 
-
+</div>
 
 </body>
 
-</p>
+</html>
+
+
 <script type="text/javascript">
 $( document ).ready(function() {
 $('#admin_grid').DataTable({
@@ -120,21 +128,20 @@ $('#admin_grid').DataTable({
          "ajax":{
             url :"fetch_admins.php", // json datasource
             type: "post",  // type of method  ,GET/POST/DELETE
-            error: function(){
-              //$("#employee_grid_processing").css("display","none");
-            }
           },
           "columns": [
                 { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "40px"},
+                { "data": "2", "bSearchable": false, "bSortable": false, "sWidth": "40px"},
+                { "data": "3", "bSearchable": false, "bSortable": false, "sWidth": "40px"},
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<form action="supprimer_admin.php" class="supprimer" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"></form>'
+                        return  '<form action="supprimer_admin.php" class="supprimer" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"  onclick="if(!confirm(`Voulez-vous Supprimer cet admin?`)) return false;"></form>'
                     }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<a class="btn btn-primary" href="mailto:'+data[1]+'">Envoyer</a>'
+                        return  '<a class="btn btn-primary" href="mailto:'+data[3]+'">Envoyer</a>'
                     }}
                 
             ]

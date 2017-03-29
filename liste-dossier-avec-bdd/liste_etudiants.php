@@ -15,6 +15,7 @@
 		2 => 'prenom',
 		3 => 'email',
 		4 => 'etat_dossier',
+		5 => 'actif'
 	);
 
 	$where = $sqlTot = $sqlRec = "";
@@ -25,11 +26,12 @@
 		$where .=" ( nom LIKE '".$params['search']['value']."%' ";    
 		$where .=" OR prenom LIKE '".$params['search']['value']."%' ";	
 		$where .=" OR etat_dossier LIKE '".$params['search']['value']."%' ";
+		$where .=" OR actif LIKE '".$params['search']['value']."%' ";
 		$where .=" OR email LIKE '".$params['search']['value']."%' )";
 	}
 
 	// getting total number records without any search
-	$sql = "SELECT id,nom,prenom,email,etat_dossier FROM `etudiant` ";
+	$sql = "SELECT id,nom,prenom,email,etat_dossier,actif FROM `etudiant` ";
 	$sqlTot .= $sql;
 	$sqlRec .= $sql;
 	//concatenate search sql if value exist

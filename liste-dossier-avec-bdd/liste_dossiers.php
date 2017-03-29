@@ -50,21 +50,70 @@
 <!-- Fin navbar -->
 <body>
 	<div class="container">
-      <div class="">
         <h1>Liste des candidats</h1>
-        <div class="">
         <br/>
+
+
+<!-- Envoi de mails groupés -->
+        <div class="mailing_lists">
         <?php include("mailing_lists.php");
         echo "Envoyer un mail a tous les : ".$bouton_refus." ".$bouton_accepte." ".$bouton_attente." ".$bouton_non_confirme." ".$bouton_liste_complementaire;
         ?>
+        </div> 
         <br/>
+<!-- Envoi de mails groupés -->
+
+
+<!-- Options filtrage préremplies -->
+        <div class='filtrage' style="position:absolute;right:5%;">
+            <form>
+                <p>
+                    <b>Filtrer par :</b>
+
+                    <select name="Filtre" id="filtre">
+
+                        <option value=""> </option>
+
+                        <optgroup label="Etat du dossier">
+
+                            <option value="Accepte">Accepté</option>
+
+                            <option value="Refuse">Refusé</option>
+
+                            <option value="En attente de reponse">En attente</option>
+
+                            <option value="Non confirme">Non confirmé</option>
+
+                            <option value="En liste complémentaire">En liste complémentaire</option>
+                         </optgroup>
+
+                        <optgroup label="Actif ?">
+
+                            <option value="identifie">Etudiant identifié</option>
+
+                            <option value="non identifie">Etudiant non identifié</option>
+
+                        </optgroup>
+
+                    </select>
+
+                </p>
+
+        </form>
+        </div>
         <br/>
+<!-- Options Filtrage -->
+
+
+
+<!-- Tableau -->
 		<table id="student_grid" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
 				<th>Etat dossier</th>
+                <th>Est actif? </th>
                 <th></th>
                 <th>Mail</th>
             </tr>
@@ -75,39 +124,36 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Etat dossier</th>
+                <th>Est actif? </th>
                 <th></th>
                 <th>Mail</th>
             </tr>
         </tfoot>
     </table>
+    <!-- Fin Tableau -->
+
     </div>
-</div>
-</div>
-
-
 </body>
 
+</html>
 
-<!--<form onsubmit="javascript:window.open('dossier_admin.php','width=400,height=500,scrollbars=yes')" ><input type="hidden" name="id" value="lol"><input class="btn btn-primary" type="submit" value="Consulter dossier" ></form>
 
-<a class='btn btn-primary' href='mailto:?bcc=yanndias@live.fr,yanndias@club-internet.fr'> mailing list <a>-->
-</p>
 <script type="text/javascript">
 $( document ).ready(function() {
+
+// Gestion du Tableau 
 $('#student_grid').DataTable({
-				 "bProcessing": true,
+		 "bProcessing": true,
          "serverSide": true,
          "ajax":{
-            url :"liste_etudiants.php", // json datasource
-            type: "post",  // type of method  ,GET/POST/DELETE
-            error: function(){
-              //$("#employee_grid_processing").css("display","none");
-            }
+            url :"liste_etudiants.php", // json a récuperer
+            type: "post",  
           },
           "columns": [
-                { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "40px"},
-                { "data": "2" ,"bSearchable": false, "bSortable": false, "sWidth": "40px"},
-                { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "40px"},
+                { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "80px"},
+                { "data": "2" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
+                { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
+                { "data": "5" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
@@ -120,6 +166,12 @@ $('#student_grid').DataTable({
                     }}
                 
             ]
-        });   
+        });
+// Fin tableau
+    
+    $( "#filtre" ).change(function() {
+        //alert($(this).val());
+        $('.dataTables_filter input').val($(this).val());
+    });   
 });
 </script>

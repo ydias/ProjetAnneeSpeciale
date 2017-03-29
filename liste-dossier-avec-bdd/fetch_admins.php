@@ -9,7 +9,10 @@
 
 	//define index of column
 	$columns = array( 
-		0 =>'login',
+		0 =>'id',
+		1 =>'nom',
+		2 =>'prenom',
+		3 =>'email'
 	);
 
 	$where = $sqlTot = $sqlRec = "";
@@ -17,11 +20,13 @@
 	// check search value exist
 	if( !empty($params['search']['value']) ) {   
 		$where .=" WHERE ";
-		$where .=" ( login LIKE '".$params['search']['value']."%' )";    
+		$where .=" ( nom LIKE '".$params['search']['value']."%' ";
+		$where .=" OR prenom LIKE '".$params['search']['value']."%' ";	
+		$where .=" OR email LIKE '".$params['search']['value']."%' )";   
 	}
 
 	// getting total number records without any search
-	$sql = "SELECT id,login FROM `admin` ";
+	$sql = "SELECT id,nom,prenom,email FROM `admin` ";
 	$sqlTot .= $sql;
 	$sqlRec .= $sql;
 	//concatenate search sql if value exist

@@ -10,7 +10,7 @@ $password="0zEhTeuYnW7M";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "annee_spe";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
 
