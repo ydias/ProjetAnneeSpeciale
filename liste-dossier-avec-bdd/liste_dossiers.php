@@ -65,7 +65,7 @@
 
                     <select name="Filtre" id="filtre">
 
-                        <option value=""> </option>
+                        <option value=""> Tous les etudiants </option>
 
                         <optgroup label="Etat du dossier">
 
@@ -77,7 +77,7 @@
 
                             <option value="Non confirme">Non confirmé</option>
 
-                            <option value="En liste complémentaire">En liste complémentaire</option>
+                            <option value="En liste complementaire">En liste complémentaire</option>
                          </optgroup>
 
                         <optgroup label="Actif ?">
@@ -157,11 +157,18 @@ $('#student_grid').DataTable({
                 { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "80px"},
                 { "data": "2" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
                 { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
-                { "data": "5" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<form action="dossier_admin.php" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-primary" type="submit" value="Consulter dossier"></form>'
+                        if(data[5]==='identifie'){
+                            return "<span class= 'glyphicon glyphicon-ok' aria-hidden='true'></span>";
+                        }
+                        else return "<span class= 'glyphicon glyphicon-remove' aria-hidden='true'></span>";
+                    }},
+                {
+                    "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
+                    "data": function (data) {
+                        return  '<form action="dossier_admin.php" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-primary " type="submit" value="Consulter dossier"></form>'
                     }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
@@ -176,12 +183,13 @@ $('#student_grid').DataTable({
     $( "#filtre" ).change(function() {
         //alert($(this).val());
         $('.dataTables_filter input').val($(this).val());
-
+        
         //Simuler un appui sur la touche entrée(pour le filtre)
         e = jQuery.Event("keyup");
         e.which = 13 //touche entrée
         jQuery('.dataTables_filter input').trigger(e);
         ///////
+        $('.dataTables_filter input').val('');
     });   
 });
 </script>
