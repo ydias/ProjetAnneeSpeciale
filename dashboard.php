@@ -6,14 +6,50 @@
 <html>
   <head>
     <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="accueil.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" />
     <link href="dashbord.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
     <div class="container-fluid"> <!--Le mots fluid permet d'enlever les marge ajouter de base au conteneur de bootstrap -->
-      <?php 
-        require_once('entete.php');
-      ?>
+      
+      <!-- Navbar -->
+<header>
+    <!-- HEADER -->
+    <div id="header">
+        <div class="container" style="display: inline;">
+           <img src="IUT-villetaneuse.png" alt="accueil"/> <font size="7" style="position: absolute;right: 25px;top: 60px;">
+                    DUT informatique année spéciale
+                </font>
+        </div>
+    </div>
+</header>
+<div id="navbar">
+    <nav class="navbar navbar-static-top navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+               <li>
+                    <a href="#main">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="#dashboard">
+                        Mon dossier
+                    </a>
+                </li>
+            
+            
+           
+            </ul>
+        </div>
+    </nav>
+
+<!-- Fin navbar -->
+
       <div class="row">
         <section class="col-sm-12">
         	<div class="row">
