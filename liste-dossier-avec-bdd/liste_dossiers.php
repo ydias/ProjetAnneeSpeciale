@@ -54,18 +54,11 @@
         <br/>
 
 
-<!-- Envoi de mails groupés -->
-        <div class="mailing_lists">
-        <?php include("mailing_lists.php");
-        echo "Envoyer un mail a tous les : ".$bouton_refus." ".$bouton_accepte." ".$bouton_attente." ".$bouton_non_confirme." ".$bouton_liste_complementaire;
-        ?>
-        </div> 
-        <br/>
-<!-- Envoi de mails groupés -->
+
 
 
 <!-- Options filtrage préremplies -->
-        <div class='filtrage' style="position:absolute;right:5%;">
+        <div class='filtrage pull-right' >
             <form>
                 <p>
                     <b>Filtrer par :</b>
@@ -131,7 +124,15 @@
         </tfoot>
     </table>
     <!-- Fin Tableau -->
-
+    <br/>
+    <!-- Envoi de mails groupés -->
+        <div class="mailing_lists">
+        <?php include("mailing_lists.php");
+        echo "Envoyer un mail a tous les : ".$bouton_refus." ".$bouton_accepte." ".$bouton_attente." ".$bouton_non_confirme." ".$bouton_liste_complementaire;
+        ?>
+        </div> 
+        <br/>
+<!-- Envoi de mails groupés -->
     </div>
 </body>
 
@@ -145,6 +146,9 @@ $( document ).ready(function() {
 $('#student_grid').DataTable({
 		 "bProcessing": true,
          "serverSide": true,
+          "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/French.json"
+            },
          "ajax":{
             url :"liste_etudiants.php", // json a récuperer
             type: "post",  
@@ -172,6 +176,12 @@ $('#student_grid').DataTable({
     $( "#filtre" ).change(function() {
         //alert($(this).val());
         $('.dataTables_filter input').val($(this).val());
+
+        //Simuler un appui sur la touche entrée(pour le filtre)
+        e = jQuery.Event("keyup");
+        e.which = 13 //touche entrée
+        jQuery('.dataTables_filter input').trigger(e);
+        ///////
     });   
 });
 </script>

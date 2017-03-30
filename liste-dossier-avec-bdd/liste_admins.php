@@ -91,16 +91,44 @@
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">× </button>
-        <b>Ajouter un admin : </b> 
 
-     <form action="ajouter_admin.php" method="post">
-        <br/> 
-     <input type="text" name="nom" placeholder="Nom" /> <br/>
-     <input type="text" name="prenom" placeholder="Prenom" /> <br/>
-     <input type="text" name="email" placeholder="Email" /> <br/>
-     <input type="password" name="mdp" placeholder="Mot de passe" /> <br/>
-     <input class="btn btn-primary" type="submit" value="Ajouter admin">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">× </button>
+        
+
+        <b class="row">Ajouter un admin : </b> 
+
+     <form action="ajouter_admin.php" method="post" class="form-horizontal"> 
+    
+     <div class="form-group">
+     <label class="control-label col-sm-2" for="nom">Nom:</label>
+     <div class="col-sm-10">
+     <input class="form-control" type="text" name="nom" placeholder="Nom" /> 
+     </div>
+     </div>
+
+     <div class="form-group">
+     <label class="control-label col-sm-2" for="prenom">Prenom:</label>
+     <div class="col-sm-10">
+     <input class="form-control" type="text" name="prenom" placeholder="Prenom" /> 
+     </div>
+     </div>
+
+     <div class="form-group">
+     <label class="control-label col-sm-2" for="email">Email:</label>
+     <div class="col-sm-10">
+     <input class="form-control" type="text" name="email" placeholder="Email" /> 
+     </div>
+     </div>
+
+     <div class="form-group">
+     <label class="control-label col-sm-2" for="nom">Mot de passe:</label>
+     <div class="col-sm-10">
+     <input class="form-control" type="password" name="mdp" placeholder="Mot de passe" /> <br/>
+     </div>
+     </div>
+
+     <input class="btn btn-primary pull-right" type="submit" value="Ajouter">
+
      </form>
         
         
@@ -123,8 +151,11 @@
 <script type="text/javascript">
 $( document ).ready(function() {
 $('#admin_grid').DataTable({
-				 "bProcessing": true,
+		 "bProcessing": true,
          "serverSide": true,
+         "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/French.json"
+            },
          "ajax":{
             url :"fetch_admins.php", // json datasource
             type: "post",  // type of method  ,GET/POST/DELETE
@@ -136,7 +167,7 @@ $('#admin_grid').DataTable({
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<form action="supprimer_admin.php" class="supprimer" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"  onclick="if(!confirm(`Voulez-vous Supprimer cet admin?`)) return false;"></form>'
+                        return  '<form action="supprimer_admin.php" class="supprimer" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-danger" type="submit" value="Supprimer"  onclick="if(!confirm(`Voulez-vous Supprimer cet admin?\n(Cette action est définitive)`)) return false;"></form>'
                     }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",

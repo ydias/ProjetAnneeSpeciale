@@ -77,7 +77,7 @@ function affiche($cible){	//permet d'afficher les accents
 
 
 
-<h3>Détails du dossier de : <?php affiche($row['prenom'].' '.$row['nom']); ?>  (Etat du dossier : <?php  affiche($row['etat_dossier']);  ?> )</h4>
+<h3>Détails du dossier de : <?php affiche($row['prenom'].' '.$row['nom']); ?>  (Etat du dossier : <?php  affiche($row['etat_dossier']);  ?> )</h3>
 <a href="liste_dossiers.php">Retour a la liste des dossiers </a>
 
 <div class="container">
@@ -186,7 +186,7 @@ function affiche($cible){	//permet d'afficher les accents
 				<br/>
 
 				<div class="row">
-					<label class="col-lg-2">Bac :</label>
+					<label class="col-lg-2">Baccalauréat :</label>
 				</div>
 
 				<br/>
@@ -330,12 +330,10 @@ function affiche($cible){	//permet d'afficher les accents
 -->
 <br/>
 <br/>
-<form action="supprimer_dossier.php" method="post"><input type="hidden" name="id" value="<?php echo $_POST['id']; ?>"><input class="btn btn-danger" type="submit" value="Supprimer le dossier" onclick="if(!confirm(`Voulez-vous Supprimer ce dossier?`)) return false;"></form>
-<br/>
-<br/>
 
 
-<form method="post" action="changer_etat_dossier.php">
+
+<form class="form-inline" method="post" action="changer_etat_dossier.php">
 
    <p>
 
@@ -354,14 +352,19 @@ function affiche($cible){	//permet d'afficher les accents
            <option value="Non confirme">Non confirme</option>
 
        </select>
-       <input class="btn btn-danger" type="submit" value="modifier">
+       <input class="btn btn-danger" type="submit" value="Modifier">
 
    </p>
 
 </form>
 
 
-</div></h3></body></html>
+<form class="form-inline" action="supprimer_dossier.php" method="post">
+<input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
+<input class="btn btn-danger" type="submit" value="Supprimer le dossier" onclick="if(!confirm(`Voulez-vous Supprimer ce dossier ?\n(Cette action est définitive)`)) return false;">
+</form>
 
+
+</div>
 </body>
 </html>

@@ -7,12 +7,10 @@ Fichiers pour la liste des étudiants:
 	mailing_lists.php => les boutons pour envoyer les mails a chaque catégorie
 
 Fichier pour le dossier détaillé:
-	dossier_admin.php => la page
-	changer_etat_dossier.php => pour changer l'état du dossier en cours, redirige sur la liste des étudiants
-	supprimer_dossier.php => supprime le dossier en cours, redirige sur la liste des étudiants
-	
+	dossier_admin.php
+
 Fichiers pour la liste des administrateurs:
 	liste_admins.php => la page
 	fetch_admins.php => rechercher les admins dans la BDD
-	ajouter_admin.php => ajouter un admin, redirige sur la liste des administrateurs
-	supprimer_admin.php => supprimer un admin, redirige sur la liste des administrateurs
+	ajouter_admin.php => ajouter un admin
+	supprimer_admin.php => supprimer un admin
