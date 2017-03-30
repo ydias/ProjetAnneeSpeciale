@@ -1,18 +1,18 @@
 <?php 
-  require_once('necessaire_historique/Class_action.php');
+  require_once('Class_action.php');
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <link href="dist/css/bootstrap.css" rel="stylesheet">
-    <link href="necessaire_historique/dashbord.css" rel="stylesheet">
+    <link href="dashbord.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
     <div class="container-fluid"> <!--Le mots fluid permet d'enlever les marge ajouter de base au conteneur de bootstrap -->
       <?php 
-        require_once('necessaire_historique/entete.php');
+        require_once('entete.php');
       ?>
       <div class="row">
         <section class="col-sm-12">
@@ -24,7 +24,13 @@
         	
           <?php
 
-            require('necessaire_historique/BDD_connexion.php');               /*BOUCLE D'AFFICHAGE DE L'HISTORIQUE*/
+            for($x = 0; $x < 20; $x++)
+            {
+              $a = new action('Creation_de_dossier' ,'lorem ipsum' , '2017-03-30', $x, 'etudiant', 'admin');
+              $a->enregistrer();
+            }
+
+            require('BDD_connexion.php');               /*BOUCLE D'AFFICHAGE DE L'HISTORIQUE*/
             $BaseDeDonne = $bdd->query('select * from historique');
             while($line = $BaseDeDonne->fetch())
             {
@@ -44,7 +50,7 @@
       </div>
     </div>
 
-    <script  language="JavaScript" type="text/javascript" src="necessaire_historique/Changement_page.js"></script>
+    <script  language="JavaScript" type="text/javascript" src="Changement_page.js"></script>
 
   </body>
 </html>
