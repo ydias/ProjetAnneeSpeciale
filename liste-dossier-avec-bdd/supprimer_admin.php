@@ -3,7 +3,7 @@ include_once("connection.php");
 $id=$_POST['id'];
 
 include_once("Class_action.php");
-$sql="select nom,prenom from `admin` WHERE `id`=".$id;
+$sql="select `nom`,`prenom` from `admin` WHERE `id`=".$id;
 $a = action('Supprimer_admin', 'Suppression d\'un compte administrateur.', date("Y-m-d"), 0, $_SESSION['login'], $sql[0] . ' ' . $sql[1]);
 $a->enregistrer();
 
