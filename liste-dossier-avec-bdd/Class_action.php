@@ -14,7 +14,7 @@
 
             $action_possible = array('Creation_de_dossier', 'Modificatin_de_dossier', 'Ajout_de_piece_jointe', 'Validation_par_email',
             'Non-validation_par_E-mail', 'Changer_le_statut_de_dossier', 'Envoie_de_rapelle_de_piece', 'Envoie_de_resultat_de_statut',
-            'Supprimer_dossier');
+            'Supprimer_dossier', 'Ajout_admin', 'Supprimer_admin');
 
             if(is_string($action) && in_array($action, $action_possible))$this->action = $action;
 
