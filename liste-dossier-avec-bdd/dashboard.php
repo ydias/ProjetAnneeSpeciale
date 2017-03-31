@@ -44,7 +44,7 @@ if(!isset($_SESSION['admin']) || $_SESSION['admin']==false) {
     <nav class="navbar navbar-static-top navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="active">
                     <a href="dashboard.php">
                         Modifications récentes
                     </a>
@@ -54,7 +54,7 @@ if(!isset($_SESSION['admin']) || $_SESSION['admin']==false) {
                         Liste des candidats
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="liste_admins.php">
                         Gestion des admins
                     </a>
