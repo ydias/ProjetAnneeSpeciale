@@ -1,3 +1,16 @@
+<?php
+
+/*session_start();
+
+if(!isset($_SESSION['admin']) || $_SESSION['admin']==false) {
+
+  echo '<meta http-equiv="refresh" content="0"; URL="accueil.php"> ';
+
+}*/
+
+?>
+
+
 <?php 
   require_once('Class_action.php');
 ?>
@@ -60,17 +73,11 @@
         	
           <?php
 
-            for($x = 0; $x < 20; $x++)
-            {
-              $a = new action('Creation_de_dossier' ,'lorem ipsum' , '2017-03-30', $x, 'etudiant', 'admin');
-              $a->enregistrer();
-            }
-
             require('BDD_connexion.php');               /*BOUCLE D'AFFICHAGE DE L'HISTORIQUE*/
             $BaseDeDonne = $bdd->query('select * from historique');
             while($line = $BaseDeDonne->fetch())
             {
-              $action = new action($line['id'], $line['info'], $line['date'], $line['id'], $line['nom_etudiant'], $line['nom_admin']);
+              $action = new action($line['action'], $line['info'], $line['date'], $line['id'], $line['nom_etudiant'], $line['nom_admin']);
               $action->affiche();
             }
             $BaseDeDonne->closeCursor(); // Termine le traitement de la requête
