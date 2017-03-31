@@ -45,7 +45,7 @@ if(!isset($_SESSION['admin']) || $_SESSION['admin']==false) {
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#dashboard">
+                    <a href="dashboard.php">
                         Modifications récentes
                     </a>
                 </li>
