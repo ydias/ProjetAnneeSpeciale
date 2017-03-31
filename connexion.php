@@ -22,7 +22,6 @@ catch (Exception $e)
 			'email' => $email,
     		'password' => $password));
 	  $resultat = $req->fetch();
-	  echo'reusssi';
 	}
 
 
@@ -55,7 +54,6 @@ catch (Exception $e)
 			'email' => $email,
     		'password' => $password));
 	  $resultat2 = $req->fetch();
-	  echo'reusssi';
 	}
 
 	catch(PDOException $e)
