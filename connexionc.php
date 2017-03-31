@@ -79,4 +79,9 @@ catch (Exception $e)
 	}
 	}
 
+	catch(PDOException $e)
+	{
+		die('<p> Erreur PDO[' .$e->getCode().'] : ' .$e->getMessage() . '</p>');
+	}
+
 ?>
