@@ -1,40 +1,8 @@
-header
+.container-fluid
 {
-	text-align: center;
-	border-bottom: 1px solid blue;
-	padding-top: 50px;
-}
-
-.menu 
-{
+	margin : 0px;
 	padding: 0px;
 	border: 0px;
-	margin: 0px;
-}
-
-.menu a
-{
-	text-decoration: none;
-	color: black;
-}
-
-.menu a:hover
-{
-	color: gray;
-}
-
-.entete_menu
-{
-	list-style: none;
-	padding: 0px;
-	border: 1px solid blue;
-	margin: 0px;
-	background-color: #6495ED;
-}
-
-.entete_menu:hover
-{
-	background-color: #87CEFA;
 }
 
 .titre h5

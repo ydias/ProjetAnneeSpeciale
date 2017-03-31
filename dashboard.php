@@ -1,3 +1,16 @@
+<?php
+
+/*session_start();
+
+if(!isset($_SESSION['admin']) || $_SESSION['admin']==false) {
+
+  echo '<meta http-equiv="refresh" content="0"; URL="accueil.php"> ';
+
+}*/
+
+?>
+
+
 <?php 
   require_once('Class_action.php');
 ?>
@@ -16,12 +29,12 @@
   <body>
     <div class="container-fluid"> <!--Le mots fluid permet d'enlever les marge ajouter de base au conteneur de bootstrap -->
       
-      <!-- Navbar -->
+<!-- Navbar -->
 <header>
     <!-- HEADER -->
     <div id="header">
-        <div class="container" style="display: inline;">
-           <img src="IUT-villetaneuse.png" alt="accueil"/> <font size="7" style="position: absolute;right: 25px;top: 60px;">
+        <div class="container" style="display:inline;">
+           <img src="IUT-villetaneuse.png" alt="accueil"/> <font size="6" style="position: absolute;right: 25px;top: 60px;">
                     DUT informatique année spéciale
                 </font>
         </div>
@@ -31,23 +44,25 @@
     <nav class="navbar navbar-static-top navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-               <li>
-                    <a href="#main">
-                        Accueil
+                <li>
+                    <a href="#dashboard">
+                        Modifications récentes
                     </a>
                 </li>
                 <li>
-                    <a href="#dashboard">
-                        Mon dossier
+                    <a href="liste_dossiers.php">
+                        Liste des candidats
                     </a>
                 </li>
-            
-            
-           
+                <li class="active">
+                    <a href="liste_admins.php">
+                        Gestion des admins
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
-
+</div>
 <!-- Fin navbar -->
 
       <div class="row">
@@ -60,17 +75,11 @@
         	
           <?php
 
-            for($x = 0; $x < 20; $x++)
-            {
-              $a = new action('Creation_de_dossier' ,'lorem ipsum' , '2017-03-30', $x, 'etudiant', 'admin');
-              $a->enregistrer();
-            }
-
             require('BDD_connexion.php');               /*BOUCLE D'AFFICHAGE DE L'HISTORIQUE*/
             $BaseDeDonne = $bdd->query('select * from historique');
             while($line = $BaseDeDonne->fetch())
             {
-              $action = new action($line['id'], $line['info'], $line['date'], $line['id'], $line['nom_etudiant'], $line['nom_admin']);
+              $action = new action($line['action'], $line['info'], $line['date'], $line['id'], $line['nom_etudiant'], $line['nom_admin']);
               $action->affiche();
             }
             $BaseDeDonne->closeCursor(); // Termine le traitement de la requête
