@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="dashboard.php">
+                    <a href="#dashboard">
                         Modifications récentes
                     </a>
                 </li>
@@ -43,6 +43,9 @@
                         Gestion des admins
                     </a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="deconnexion.php"><span class="glyphicon glyphicon-log-out"></span> Deconnexion</a></li>
             </ul>
         </div>
     </nav>
@@ -97,7 +100,7 @@
 
         <b class="row">Ajouter un admin : </b> 
 
-     <form action="ajouter_admin.php" method="post" class="form-horizontal"> 
+     <form action="ajouter_admin.php" method="post" class="form-horizontal" id='form_ajout_admin'> 
     
      <div class="form-group">
      <label class="control-label col-sm-2" for="nom">Nom:</label>
@@ -121,9 +124,15 @@
      </div>
 
      <div class="form-group">
-     <label class="control-label col-sm-2" for="nom">Mot de passe:</label>
+     <label class="control-label col-sm-2" for="mdp">Mot de passe:</label>
      <div class="col-sm-10">
      <input class="form-control" type="password" name="mdp" placeholder="Mot de passe" /> <br/>
+     </div>
+
+     <div class="form-group">
+     <label class="control-label col-sm-2" for="mdp_confirm">Mot de passe:</label>
+     <div class="col-sm-10">
+     <input class="form-control" type="password" name="mdp_confirm" placeholder="Mot de passe" /> <br/>
      </div>
      </div>
 
@@ -177,5 +186,6 @@ $('#admin_grid').DataTable({
                 
             ]
         });  
+     
 });
 </script>

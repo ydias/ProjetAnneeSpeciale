@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="dashboard.php">
+                    <a href="#dashboard">
                         Modifications récentes
                     </a>
                 </li>
@@ -44,6 +44,9 @@
                     </a>
                 </li>
             </ul>
+			<ul class="nav navbar-nav navbar-right">
+			<li><a href="deconnexion.php"><span class="glyphicon glyphicon-log-out"></span> Deconnexion</a></li>
+            </ul>
         </div>
     </nav>
 </div>
@@ -53,6 +56,27 @@
         <h1>Liste des candidats</h1>
         <br/>
 
+<div class='row'>
+<!--- BUTTON AVEC LES MAILS -->
+<?php  include("mailing_lists.php");?>
+
+
+ <div class="pull-left btn-group btn-sm dropup">
+
+  <div class="btn-group btn-sm">
+  	<button type="button" class="btn btn-primary btn-sm">Envoyer un mail à tous les : </button>
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown">
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="mailto:?bcc=<?php echo $refus ?>">Refusés</a></li>
+      <li><a href="mailto:?bcc=<?php echo $accepte ?>">Acceptés</a></li>
+      <li><a href="mailto:?bcc=<?php echo $liste_complementaire ?>">En liste Complémentaire</a></li>
+      <li><a href="mailto:?bcc=<?php echo $attente ?>">En attente de réponse</a></li>
+      <li><a href="mailto:?bcc=<?php echo $non_confirme ?>">Non confirmés</a></li>
+    </ul>
+  </div>
+</div>
+<!-- BUTTON AVEC LES MAILS -->
 
 
 
@@ -96,7 +120,7 @@
         </div>
         <br/>
 <!-- Options Filtrage -->
-
+</div>
 
 
 <!-- Tableau -->
@@ -125,21 +149,28 @@
     </table>
     <!-- Fin Tableau -->
     <br/>
-    <!-- Envoi de mails groupés -->
-        <div class="mailing_lists">
+
+    <!-- Envoi de mails groupés (boutons) -->
+    <!--<div class="row">
+    <label class='pull-left'> Envoyer un mail a tous les :</label>
+        <div class="btn-group">
         <?php include("mailing_lists.php");
-        echo "Envoyer un mail a tous les : ".$bouton_refus." ".$bouton_accepte." ".$bouton_attente." ".$bouton_non_confirme." ".$bouton_liste_complementaire;
+        echo " ".$bouton_refus." ".$bouton_accepte." ".$bouton_attente." ".$bouton_non_confirme." ".$bouton_liste_complementaire;
         ?>
-        </div> 
-        <br/>
-<!-- Envoi de mails groupés -->
+        </div>
+    </div>
+        <br/>-->
+    <!-- Envoi de mails groupés -->
+
+
+
     </div>
 </body>
 
 </html>
 
 
-<script type="text/javascript">
+<script type="text/javascript" >
 $( document ).ready(function() {
 
 // Gestion du Tableau 
@@ -147,7 +178,8 @@ $('#student_grid').DataTable({
 		 "bProcessing": true,
          "serverSide": true,
           "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/French.json"
+                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/French.json",
+                searchPlaceholder: "Nom, Prénom ou Mail"
             },
          "ajax":{
             url :"liste_etudiants.php", // json a récuperer
@@ -156,7 +188,7 @@ $('#student_grid').DataTable({
           "columns": [
                 { "data": "1", "bSearchable": false, "bSortable": false, "sWidth": "80px"},
                 { "data": "2" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
-                { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"},
+                { "data": "4" ,"bSearchable": false, "bSortable": false, "sWidth": "80px"}, // faire en sorte de rajouter
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
@@ -168,18 +200,24 @@ $('#student_grid').DataTable({
                 {
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<form action="dossier_admin.php" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-primary " type="submit" value="Consulter dossier"></form>'
+                        return  '<form action="dossier_admin.php" method="post"><input type="hidden" name="id" value="'+data[0]+'"><input class="btn btn-primary btn-sm" type="submit" value="Consulter dossier"></form>'
                     }},
               	{
                     "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
                     "data": function (data) {
-                        return  '<a class="btn btn-primary" href="mailto:'+data[3]+'">Envoyer</a>'
+                        return  '<a class="btn btn-primary btn-sm" href="mailto:'+data[3]+'">Envoyer</a>'
                     }}
                 
             ]
         });
+        $
+
+        
+        
+
 // Fin tableau
     
+
     $( "#filtre" ).change(function() {
         //alert($(this).val());
         $('.dataTables_filter input').val($(this).val());
@@ -190,6 +228,9 @@ $('#student_grid').DataTable({
         jQuery('.dataTables_filter input').trigger(e);
         ///////
         $('.dataTables_filter input').val('');
+        $('.sorting_asc').removeClass();
+        
     });   
+
 });
 </script>

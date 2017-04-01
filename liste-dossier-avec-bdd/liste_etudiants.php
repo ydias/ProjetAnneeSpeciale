@@ -2,7 +2,8 @@
 <?php
 	//include connection file 
 	include_once("connection.php");
-	 
+
+
 	// initilize all variable
 	$params = $columns = $totalRecords = $data = array();
 
@@ -62,7 +63,6 @@
 			"recordsFiltered" => intval($totalRecords),
 			"data"            => $data   // total data array
 			);
-
 	echo json_encode($json_data);  // send data as json format
 ?>
 	
