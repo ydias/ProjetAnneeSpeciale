@@ -2,7 +2,7 @@
 
 <html>
 <?php
-    require_once('connexionbdd.php'); 
+    require_once('BDD/connexionbdd.php'); 
 ?>
 	<head>
 
@@ -11,15 +11,15 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
 	  	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="pageEtudient.css">
-        <script src="envoieEmail.js"></script>
+		<link rel="stylesheet" href="Fct_PageEtudiant/pageEtudient.css">
+        <script src="Fct_EnvoieEmailenvoieEmail.js"></script>
 	</head>
 	<body>
 <header>
 
     <div id="header">
         <div class="container" style="display: inline;">
-           <img src="IUT-villetaneuse.png" alt="accueil"class="col-lg-2"/>
+           <img src="Image/IUT-villetaneuse.png" alt="accueil"class="col-lg-2"/>
             <font size="7" class="col-lg-8 col-lg-offset-2">
                     DUT informatique année spéciale
                 </font>
