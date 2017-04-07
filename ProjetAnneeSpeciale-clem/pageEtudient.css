@@ -1,0 +1,74 @@
+#identifient{
+	background-color: #333;
+	color: gray;
+}
+#inputLycee1{
+	display: none;
+}
+#inputLycee{
+	display: none;
+}
+#inputSalon1{
+	display: none;
+}
+#inputSalon{
+	display: none;
+}
+#inputPresse1{
+	display: none;
+}
+#inputPresse{
+	display: none;
+}
+#inputInternet1{
+	display: none;
+}
+#inputInternet{
+	display: none;
+}
+#inputautre1{
+	display: none;
+}
+#inputautre{
+	display: none;
+}
+
+#AutreEtablissement1{
+	display: none;
+}
+#AutreSpe1{
+	display: none;
+}
+#AutreEtablissement2{
+	display: none;
+}
+#AutreSpe2{
+	display: none;
+}
+#AutreEtablissement3{
+	display: none;
+}
+#AutreSpe3{
+	display: none;
+}
+#AutreEtablissement1nom{
+	display: none;
+}
+#AutreSpe1nom{
+	display: none;
+}
+#AutreEtablissement2nom{
+	display: none;
+}
+#AutreSpe2nom{
+	display: none;
+}
+#AutreEtablissement3nom{
+	display: none;
+}
+#AutreSpe3nom{
+	display: none;
+}
+#precisionVoeux{
+	display: none;
+}
